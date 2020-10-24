@@ -12,26 +12,26 @@ steps:
   displayName: 'git version'
   inputs:
     updateAssemblyInfo: true
-    updateAssemblyInfoFilename: 'src/Functions.Extensions.Startup/Properties/AssemblyInfo.cs'
+    updateAssemblyInfoFilename: '**/src/Functions.Extensions.Startup/Properties/AssemblyInfo.cs'
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet build'
   inputs:
     command: 'build'
+    projects: '**/src/Functions.Extensions.Startup/Functions.Extensions.Startup.csproj'
     arguments: '--configuration $(buildConfiguration)'
-    projects: 'src/Functions.Extensions.Startup/Functions.Extensions.Startup.csproj'
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet test'
   inputs:
     command: 'test'
-    projects: 'test/Functions.Extensions.Startup.Tests/Functions.Extensions.Startup.Tests.csproj'
+    projects: '**/test/Functions.Extensions.Startup.Tests/Functions.Extensions.Startup.Tests.csproj'
 
 - task: DotNetCoreCLI@2
   displayName: "dotnet pack"
   inputs:
     command: 'pack'
-    packagesToPack: 'src/Functions.Extensions.Startup/Functions.Extensions.Startup.csproj'
+    packagesToPack: '**/src/Functions.Extensions.Startup/Functions.Extensions.Startup.csproj'
     nobuild: true
     includesymbols: true
     versioningScheme: 'byEnvVar'
