@@ -8,6 +8,11 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: gitversion/execute@0
+  inputs:
+    targetPath: '$(Build.SourcesDirectory)'
+    updateAssemblyInfo: true
+    updateAssemblyInfoFilename: './src/Functions.Extensions.Startup/Properties/AssemblyInfo.cs'
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet build'
