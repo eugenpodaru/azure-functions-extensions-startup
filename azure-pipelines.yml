@@ -38,7 +38,15 @@ steps:
   inputs:
     command: 'pack'
     packagesToPack: '**/src/Functions.Extensions.Startup/Functions.Extensions.Startup.csproj'
+    packDirectory: '$(Pipeline.Workspace)'
     nobuild: true
     includesymbols: true
     versioningScheme: 'byEnvVar'
     versionEnvVar: 'GitVersion.NuGetVersion'
+
+- task: PublishPipelineArtifact@1
+  displayName: 'publish artifact'
+  inputs:
+    targetPath: '$(Pipeline.Workspace)'
+    artifact: 'azure-functions-extensions-startup'
+    publishLocation: 'pipeline'
