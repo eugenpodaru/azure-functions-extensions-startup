@@ -3,7 +3,7 @@
 
 |Branch|Status|
 |---|---|
-|master|[![Build status]()|
+|master|[![Build status](https://dev.azure.com/devlight/azure-functions-extensions-startup/_apis/build/status/eugenpodaru.azure-functions-extensions-startup?branchName=master)|
 
 
 This repo contains the startup binding extension for the **Azure WebJobs SDK**. This repo is available as the **Devlight.Azure.Functions.Extensions.Startup** [nuget package](http://www.nuget.org/packages/Devlight.Azure.Functions.Extensions.Startup).
