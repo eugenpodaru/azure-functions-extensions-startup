@@ -8,7 +8,13 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: gitversion/setup@0
+  displayName: 'git version setup'
+  inputs:
+    versionSpec: '5.x'
+
 - task: gitversion/execute@0
+  displayName: 'git version run'
   inputs:
     targetPath: '$(Build.SourcesDirectory)'
     updateAssemblyInfo: true
