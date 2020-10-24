@@ -9,15 +9,16 @@ variables:
 
 steps:
 - task: gitversion/setup@0
-  displayName: 'git version setup'
+  displayName: 'install gitversion'
   inputs:
     versionSpec: '5.x'
 
 - task: DotNetCoreCLI@2
+  displayName: 'dotnet gitversion'
   inputs:
     command: 'custom'
     custom: 'gitversion'
-    arguments: '/?'
+    arguments: '/targetpath "$(Build.SourcesDirectory)" /output buildserver /updateprojectfiles'
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet build'
