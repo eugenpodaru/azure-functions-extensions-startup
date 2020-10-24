@@ -1,4 +1,4 @@
-﻿﻿Devlight Azure Functions Startup Trigger
+﻿Azure Functions Startup Trigger
 ===
 
 |Branch|Status|
@@ -16,7 +16,7 @@ The runtime starts when the function app wakes up after going idle due to inacti
 Here is how to use it:
 
 ```csharp
-public static void StartupJob([StartupTrigger] StarupInfo startup)
+public static void StartupJob([StartupTrigger] StartupInfo startup)
 {
     Console.WriteLine("The function app has just started, woke up or scaled out!");
 }
