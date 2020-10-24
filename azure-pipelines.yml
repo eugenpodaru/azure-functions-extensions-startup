@@ -8,19 +8,17 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: DotNetCoreCLI@2
+- task: gitversion/setup@0
   displayName: 'install gitversion'
   inputs:
-    command: 'custom'
-    custom: 'tool'
-    arguments: 'install --global GitVersion.Tool'
+    versionSpec: '5.x'
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet gitversion'
   inputs:
     command: 'custom'
     custom: 'gitversion'
-    arguments: '/targetpath $(Build.SourcesDirectory) /output buildserver /updateassemblyinfo /updateprojectfiles'
+    arguments: '/targetpath "$(Build.SourcesDirectory)" /output buildserver /updateassemblyinfo /updateprojectfiles'
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet build'
