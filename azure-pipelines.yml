@@ -13,12 +13,11 @@ steps:
   inputs:
     versionSpec: '5.x'
 
-- task: gitversion/execute@0
-  displayName: 'git version run'
+- task: DotNetCoreCLI@2
   inputs:
-    targetPath: '$(Build.SourcesDirectory)'
-    updateAssemblyInfo: true
-    updateAssemblyInfoFilename: './src/Functions.Extensions.Startup/Properties/AssemblyInfo.cs'
+    command: 'custom'
+    custom: 'gitversion'
+    arguments: '/?'
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet build'
