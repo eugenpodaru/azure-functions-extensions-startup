@@ -51,10 +51,10 @@ steps:
     artifact: 'azure-functions-extensions-startup'
     publishLocation: 'pipeline'
 
-- task: DotNetCoreCLI@2
+- task: NuGetCommand@2
   displayName: 'nuget push'
   inputs:
     command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg'
     nuGetFeedType: 'external'
     publishFeedCredentials: 'nuget'
