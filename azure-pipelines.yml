@@ -40,7 +40,6 @@ steps:
     packagesToPack: '**/src/Functions.Extensions.Startup/Functions.Extensions.Startup.csproj'
     packDirectory: '$(Build.ArtifactStagingDirectory)'
     nobuild: true
-    includesymbols: true
     versioningScheme: 'byEnvVar'
     versionEnvVar: 'GitVersion.NuGetVersion'
 
