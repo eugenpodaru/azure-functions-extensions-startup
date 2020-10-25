@@ -38,8 +38,8 @@ steps:
   inputs:
     command: 'pack'
     packagesToPack: '**/src/Functions.Extensions.Startup/Functions.Extensions.Startup.csproj'
-    packDirectory: '$(Build.ArtifactStagingDirectory)'
     nobuild: true
+    includesymbols: true
     versioningScheme: 'byEnvVar'
     versionEnvVar: 'GitVersion.NuGetVersion'
 
@@ -55,4 +55,4 @@ steps:
   inputs:
     command: 'custom'
     custom: 'nuget'
-    arguments: 'push $(Build.ArtifactStagingDirectory)/*.nupkg -k $(nuget-api-key) -s https://api.nuget.org/v3/index.json -n --skip-duplicate'
+    arguments: 'push $(Build.ArtifactStagingDirectory)/*.nupkg -k $(nuget-api-key) -s https://api.nuget.org/v3/index.json --skip-duplicate'
