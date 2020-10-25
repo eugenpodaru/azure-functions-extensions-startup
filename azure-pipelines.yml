@@ -56,4 +56,4 @@ steps:
   inputs:
     command: 'custom'
     custom: 'nuget'
-    arguments: 'push $(Build.ArtifactStagingDirectory)/*.nupkg -k $(nuget-api-key) -s https://api.nuget.org/v3/index.json'
+    arguments: 'push $(Build.ArtifactStagingDirectory)/*.nupkg -k $(nuget-api-key) -s https://api.nuget.org/v3/index.json -n --skip-duplicate'
